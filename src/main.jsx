@@ -11,19 +11,34 @@ import ChildRoute from './routes/parentRoute/childRoutes/index.jsx'
 
 const router = createBrowserRouter([
   {
-    id: "crumb:root",
     path: "/",
     element: <Root />,
+    handle: {
+      crumb: {
+        show: true,
+        name: "root",
+      },
+    },
     children: [
       {
-        id: "crumb:parentRoute",
         path: "parentRoute",
         element: <ParentRoute />,
+        handle: {
+          crumb: {
+            show: true,
+            name: "parentRoute",
+          },
+        },
         children: [
           {
-            id: "crumb:childRoute",
             path: "childRoute",
-            element: <ChildRoute />
+            element: <ChildRoute />,
+            handle: {
+              crumb: {
+                show: true,
+                name: "childRoute",
+              },
+            }
           }
         ]
       }

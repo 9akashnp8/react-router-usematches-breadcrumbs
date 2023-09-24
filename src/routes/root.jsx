@@ -7,13 +7,14 @@ import Breadcrumbs from '../components/Breadcrumb';
 
 export default function Root() {
     const matches = useMatches()
-    let crumbs = matches
-        .map((match) => {
+    let crumbs = matches.map((match) => {
+        if (match.handle.crumb.show) {
             return {
-                name: match.id,
+                name: match.handle.crumb.name,
                 path: match.pathname
             }
-        })
+        }
+    })
 
     return (
         <>
